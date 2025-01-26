@@ -1,14 +1,12 @@
 
 
-# Pipecat &mdash; Examples
+# Cat Terminal &mdash; Examples
 
 ## Foundational snippets
 Small snippets that build on each other, introducing one or two concepts at a time.
 
-➡️ [Take a look](https://github.com/pipecat-ai/pipecat/tree/main/examples/foundational)
-
 ## Chatbot examples
-Collection of self-contained real-time voice and video AI demo applications built with Pipecat.
+Collection of self-contained real-time voice and video AI demo applications built with Cat Terminal.
 
 ### Quickstart
 
@@ -17,7 +15,7 @@ Each project has its own set of dependencies and configuration variables. They i
 We recommend you start with a virtual environment:
 
 ```shell
-cd pipecat-ai/examples/simple-chatbot
+cd cat_terminal-ai/examples/simple-chatbot
 
 python -m venv venv
 
@@ -28,7 +26,7 @@ pip install -r requirements.txt
 
 Next, follow the steps in the README for each demo.
 
-ℹ️ Make sure you `pip install -r requirements.txt` for each demo project, so you can be sure to have the necessary service dependencies that extend the functionality of Pipecat. You can read more about the framework architecture [here](https://github.com/pipecat-ai/pipecat/tree/main/docs).
+ℹ️ Make sure you `pip install -r requirements.txt` for each demo project, so you can be sure to have the necessary service dependencies that extend the functionality of Cat Terminal. You can read more about the framework architecture [here](https://github.com/Cat-Terminal/Cat-Terminal/tree/main/docs).
 
 ## Projects:
 
@@ -83,6 +81,4 @@ For projects that have CUDA as a requirement, such as Moondream Chatbot, be sure
 
 ## Getting help
 
-➡️ [Join our Discord](https://discord.gg/pipecat)
-
-➡️ [Reach us on Twitter](https://x.com/pipecat_ai)
+➡️ [Reach us on Twitter](https://x.com/Cat_Terminal_)

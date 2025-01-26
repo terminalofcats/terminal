@@ -1,10 +1,10 @@
 <div align="center">
- <img alt="pipecat" width="300px" height="auto" src="image.png">
+ <img alt="catterminal" width="300px" height="auto" src="image.png">
 </div>
 
 # Dialin example
 
-Example project that demonstrates how to add phone number dialin to your Pipecat bots. We include examples for both Daily (`bot_daily.py`) and Twilio (`bot_twilio.py`), depending on who you want to use as a phone vendor.
+Example project that demonstrates how to add phone number dialin to your Cat Terminal bots. We include examples for both Daily (`bot_daily.py`) and Twilio (`bot_twilio.py`), depending on who you want to use as a phone vendor.
 
 - 🔁 Transport: Daily WebRTC
 - 💬 Speech-to-Text: Deepgram via Daily transport
@@ -15,7 +15,7 @@ Example project that demonstrates how to add phone number dialin to your Pipecat
 
 If you're starting from scratch, using Daily to provision phone numbers alongside Daily as a transport offers some convenience (such as automatic call forwarding.)
 
-If you already have Twilio numbers and workflows that you want to connect to your Pipecat bots, there is some additional configuration required (you'll need to create a `on_dialin_ready` and use the Twilio client to trigger the forward.)
+If you already have Twilio numbers and workflows that you want to connect to your Cat Terminal bots, there is some additional configuration required (you'll need to create a `on_dialin_ready` and use the Twilio client to trigger the forward.)
 
 You can read more about this, as well as see respective walkthroughs in our docs.
 
@@ -54,7 +54,7 @@ For more configuration options, please consult Twilio's API documentation.
 
 A Dockerfile is included in this demo for convenience. Here is an example of how to build and deploy your bot to [fly.io](https://fly.io).
 
-*Please note: This demo spawns agents as subprocesses for convenience / demonstration purposes. You would likely not want to do this in production as it would limit concurrency to available system resources. For more information on how to deploy your bots using VMs, refer to the Pipecat documentation.*
+*Please note: This demo spawns agents as subprocesses for convenience / demonstration purposes. You would likely not want to do this in production as it would limit concurrency to available system resources. For more information on how to deploy your bots using VMs, refer to the Cat Terminal documentation.*
 
 ### Build the docker image
 
@@ -79,7 +79,3 @@ If you're using Twilio as a number vendor:
 ### Deploy!
 
 `fly deploy`
-
-## Need to do something more advanced?
-
-This demo covers the basics of bot telephony. If you want to know more about working with PSTN / SIP, please ping us on [Discord](https://discord.gg/pipecat).

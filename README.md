@@ -1,10 +1,8 @@
 <h1><div align="center">
- <img alt="pipecat" width="300px" height="auto" src="https://raw.githubusercontent.com/pipecat-ai/pipecat/main/pipecat.png">
+Cat Terminal
 </div></h1>
 
-[![PyPI](https://img.shields.io/pypi/v/pipecat-ai)](https://pypi.org/project/pipecat-ai) ![Tests](https://github.com/pipecat-ai/pipecat/actions/workflows/tests.yaml/badge.svg) [![Docs](https://img.shields.io/badge/Documentation-blue)](https://docs.pipecat.ai) [![Discord](https://img.shields.io/discord/1239284677165056021)](https://discord.gg/pipecat) <a href="https://app.commanddash.io/agent/github_pipecat-ai_pipecat"><img src="https://img.shields.io/badge/AI-Code%20Agent-EB9FDA"></a>
-
-Pipecat is an open source Python framework for building voice and multimodal conversational agents. It handles the complex orchestration of AI services, network transport, audio processing, and multimodal interactions, letting you focus on creating engaging experiences.
+Cat Terminal is an open source Python framework for building voice and multimodal conversational agents. It handles the complex orchestration of AI services, network transport, audio processing, and multimodal interactions, letting you focus on creating engaging experiences.
 
 ## What you can build
 
@@ -13,7 +11,6 @@ Pipecat is an open source Python framework for building voice and multimodal con
 - **Multimodal Apps**: Combine voice, video, images, and text
 - **Creative Tools**: [Story-telling experiences](https://storytelling-chatbot.fly.dev/) and social companions
 - **Business Solutions**: [Customer intake flows](https://www.youtube.com/watch?v=lDevgsp9vn0) and support bots
-- **Complex conversational flows**: [Refer to Pipecat Flows](https://github.com/pipecat-ai/pipecat-flows) to learn more
 
 ## See it in action
 
@@ -33,15 +30,13 @@ Pipecat is an open source Python framework for building voice and multimodal con
 - **Real-time Processing**: Frame-based pipeline architecture for fluid interactions
 - **Production Ready**: Enterprise-grade WebRTC and Websocket support
 
-💡 Looking to build structured conversations? Check out [Pipecat Flows](https://github.com/pipecat-ai/pipecat-flows) for managing complex conversational states and transitions.
-
 ## Getting started
 
-You can get started with Pipecat running on your local machine, then move your agent processes to the cloud when you’re ready. You can also add a 📞 telephone number, 🖼️ image output, 📺 video input, use different LLMs, and more.
+You can get started with Cat Terminal running on your local machine, then move your agent processes to the cloud when you’re ready. You can also add a 📞 telephone number, 🖼️ image output, 📺 video input, use different LLMs, and more.
 
 ```shell
 # Install the module
-pip install pipecat-ai
+pip install Cat-Terminal-ai
 
 # Set up your environment
 cp dot-env.template .env
@@ -50,43 +45,22 @@ cp dot-env.template .env
 To keep things lightweight, only the core framework is included by default. If you need support for third-party AI services, you can add the necessary dependencies with:
 
 ```shell
-pip install "pipecat-ai[option,...]"
+pip install "Cat-Terminal-ai[option,...]"
 ```
-
-Available options include:
-
-| Category            | Services                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    | Install Command Example                 |
-| ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------- |
-| Speech-to-Text      | [AssemblyAI](https://docs.pipecat.ai/server/services/stt/assemblyai), [Azure](https://docs.pipecat.ai/server/services/stt/azure), [Deepgram](https://docs.pipecat.ai/server/services/stt/deepgram), [Gladia](https://docs.pipecat.ai/server/services/stt/gladia), [Whisper](https://docs.pipecat.ai/server/services/stt/whisper)                                                                                                                                                                                                                                                                                                                                                                                                                                                            | `pip install "pipecat-ai[deepgram]"`    |
-| LLMs                | [Anthropic](https://docs.pipecat.ai/server/services/llm/anthropic), [Azure](https://docs.pipecat.ai/server/services/llm/azure), [Cerebras](https://docs.pipecat.ai/server/services/llm/cerebras), [DeepSeek](https://docs.pipecat.ai/server/services/llm/deepseek), [Fireworks AI](https://docs.pipecat.ai/server/services/llm/fireworks), [Gemini](https://docs.pipecat.ai/server/services/llm/gemini), [Grok](https://docs.pipecat.ai/server/services/llm/grok), [Groq](https://docs.pipecat.ai/server/services/llm/groq), [NVIDIA NIM](https://docs.pipecat.ai/server/services/llm/nim), [Ollama](https://docs.pipecat.ai/server/services/llm/ollama), [OpenAI](https://docs.pipecat.ai/server/services/llm/openai), [OpenRouter](https://docs.pipecat.ai/server/services/llm/openrouter), [Together AI](https://docs.pipecat.ai/server/services/llm/together) | `pip install "pipecat-ai[openai]"`      |
-| Text-to-Speech      | [AWS](https://docs.pipecat.ai/server/services/tts/aws), [Azure](https://docs.pipecat.ai/server/services/tts/azure), [Cartesia](https://docs.pipecat.ai/server/services/tts/cartesia), [Deepgram](https://docs.pipecat.ai/server/services/tts/deepgram), [ElevenLabs](https://docs.pipecat.ai/server/services/tts/elevenlabs), [Fish](https://docs.pipecat.ai/server/services/tts/fish), [Google](https://docs.pipecat.ai/server/services/tts/google), [LMNT](https://docs.pipecat.ai/server/services/tts/lmnt), [OpenAI](https://docs.pipecat.ai/server/services/tts/openai), [PlayHT](https://docs.pipecat.ai/server/services/tts/playht), [Rime](https://docs.pipecat.ai/server/services/tts/rime), [XTTS](https://docs.pipecat.ai/server/services/tts/xtts)                              | `pip install "pipecat-ai[cartesia]"`    |
-| Speech-to-Speech    | [Gemini Multimodal Live](https://docs.pipecat.ai/server/services/s2s/gemini), [OpenAI Realtime](https://docs.pipecat.ai/server/services/s2s/openai)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         | `pip install "pipecat-ai[openai]"`      |
-| Transport           | [Daily (WebRTC)](https://docs.pipecat.ai/server/services/transport/daily), [FastAPI Websocket](https://docs.pipecat.ai/server/services/transport/fastapi-websocket), [WebSocket Server](https://docs.pipecat.ai/server/services/transport/websocket-server), Local                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          | `pip install "pipecat-ai[daily]"`       |
-| Video               | [Tavus](https://docs.pipecat.ai/server/services/video/tavus), [Simli](https://docs.pipecat.ai/server/services/video/simli)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  | `pip install "pipecat-ai[tavus,simli]"` |
-| Vision & Image      | [Moondream](https://docs.pipecat.ai/server/services/vision/moondream), [fal](https://docs.pipecat.ai/server/services/image-generation/fal)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  | `pip install "pipecat-ai[moondream]"`   |
-| Audio Processing    | [Silero VAD](https://docs.pipecat.ai/server/utilities/audio/silero-vad-analyzer), [Krisp](https://docs.pipecat.ai/server/utilities/audio/krisp-filter), [Koala](https://docs.pipecat.ai/server/utilities/audio/koala-filter), [Noisereduce](https://docs.pipecat.ai/server/utilities/audio/noisereduce-filter)                                                                                                                                                                                                                                                                                                                                                                                                                                                                              | `pip install "pipecat-ai[silero]"`      |
-| Analytics & Metrics | [Canonical AI](https://docs.pipecat.ai/server/services/analytics/canonical), [Sentry](https://docs.pipecat.ai/server/services/analytics/sentry)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             | `pip install "pipecat-ai[canonical]"`   |
-
-📚 [View full services documentation →](https://docs.pipecat.ai/server/services/supported-services)
-
-## Code examples
-
-- [Foundational](https://github.com/pipecat-ai/pipecat/tree/main/examples/foundational) — small snippets that build on each other, introducing one or two concepts at a time
-- [Example apps](https://github.com/pipecat-ai/pipecat/tree/main/examples/) — complete applications that you can use as starting points for development
 
 ## A simple voice agent running locally
 
-Here is a very basic Pipecat bot that greets a user when they join a real-time session. We'll use [Daily](https://daily.co) for real-time media transport, and [Cartesia](https://cartesia.ai/) for text-to-speech.
+Here is a very basic Cat Terminal bot that greets a user when they join a real-time session. We'll use [Daily](https://daily.co) for real-time media transport, and [Cartesia](https://cartesia.ai/) for text-to-speech.
 
 ```python
 import asyncio
 
-from pipecat.frames.frames import EndFrame, TextFrame
-from pipecat.pipeline.pipeline import Pipeline
-from pipecat.pipeline.task import PipelineTask
-from pipecat.pipeline.runner import PipelineRunner
-from pipecat.services.cartesia import CartesiaTTSService
-from pipecat.transports.services.daily import DailyParams, DailyTransport
+from catterminal.frames.frames import EndFrame, TextFrame
+from catterminal.pipeline.pipeline import Pipeline
+from catterminal.pipeline.task import PipelineTask
+from catterminal.pipeline.runner import PipelineRunner
+from catterminal.services.cartesia import CartesiaTTSService
+from catterminal.transports.services.daily import DailyParams, DailyTransport
 
 async def main():
   # Use Daily as a real-time media transport (WebRTC)
@@ -105,7 +79,7 @@ async def main():
   # Simple pipeline that will process text to speech and output the result
   pipeline = Pipeline([tts, transport.output()])
 
-  # Create Pipecat processor that can run one or more pipelines tasks
+  # Create Cat Terminal processor that can run one or more pipelines tasks
   runner = PipelineRunner()
 
   # Assign the task callable to run the pipeline
@@ -240,23 +214,6 @@ Install the
 4. **Arguments**: `format $FilePath$`
 5. **Program**: `$PyInterpreterDirectory$/ruff`
 
-## Contributing
-
-We welcome contributions from the community! Whether you're fixing bugs, improving documentation, or adding new features, here's how you can help:
-
-- **Found a bug?** Open an [issue](https://github.com/pipecat-ai/pipecat/issues)
-- **Have a feature idea?** Start a [discussion](https://discord.gg/pipecat)
-- **Want to contribute code?** Check our [CONTRIBUTING.md](CONTRIBUTING.md) guide
-- **Documentation improvements?** [Docs](https://github.com/pipecat-ai/docs) PRs are always welcome
-
-Before submitting a pull request, please check existing issues and PRs to avoid duplicates.
-
-We aim to review all contributions promptly and provide constructive feedback to help get your changes merged.
-
 ## Getting help
 
-➡️ [Join our Discord](https://discord.gg/pipecat)
-
-➡️ [Read the docs](https://docs.pipecat.ai)
-
-➡️ [Reach us on X](https://x.com/pipecat_ai)
+➡️ [Reach us on X](https://x.com/Cat_Terminal_)

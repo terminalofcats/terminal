@@ -1,9 +1,5 @@
 # studypal
 
-### Have a conversation about any article on the web
-
-studypal is a fast conversational AI built using [Daily](https://www.daily.co/) for real-time media transport and [Cartesia](https://cartesia.ai) for text-to-speech. Everything is orchestrated together (VAD -> STT -> LLM -> TTS) using [Pipecat](https://www.pipecat.ai/).
-
 ## Setup
 
 1. Clone the repository

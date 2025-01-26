@@ -1,4 +1,4 @@
-# Pipecat Docs
+# Cat Terminal Docs
 
 ## [Architecture Overview](architecture.md)
 

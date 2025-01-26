@@ -1,4 +1,4 @@
-# Deploying Pipecat to Modal.com
+# Deploying Cat Terminal to Modal.com
 
 Barebones deployment example for [modal.com](https://www.modal.com)
 

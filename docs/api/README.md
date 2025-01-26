@@ -1,6 +1,6 @@
-# Pipecat Documentation
+# Cat Terminal Documentation
 
-This directory contains the source files for auto-generating Pipecat's server API reference documentation.
+This directory contains the source files for auto-generating Cat Terminal's server API reference documentation.
 
 ## Setup
 
@@ -92,7 +92,7 @@ start _build/html/index.html
 
 If you encounter missing service modules:
 
-1. Verify the service is installed with its extras: `pip install pipecat-ai[service-name]`
+1. Verify the service is installed with its extras: `pip install Cat-Terminal-ai[service-name]`
 2. Check the build logs for import errors
 3. Ensure the service module is properly initialized in the package
 4. Run `./rtd-test.py` to test in an isolated environment matching ReadTheDocs

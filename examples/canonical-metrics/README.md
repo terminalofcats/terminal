@@ -15,7 +15,7 @@ This project implements a chatbot using a pipeline architecture that integrates 
 
 - Python 3.10+
 - `python-dotenv`
-- Additional libraries from the `pipecat` package.
+- Additional libraries from the `cat-terminal` package.
 
 ## Setup
 
