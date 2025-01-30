@@ -1,10 +1,10 @@
-<h1><div align="center">
-Cat Terminal
-</div></h1>
+# <div align="center">Terminal of Cats</div>
 
-Cat Terminal is an open source Python framework for building voice and multimodal conversational agents. It handles the complex orchestration of AI services, network transport, audio processing, and multimodal interactions, letting you focus on creating engaging experiences.
+**Terminal of Cats** is an open-source Python framework for building voice and multimodal conversational agents. It handles the complex orchestration of AI services, network transport, audio processing, and multimodal interactions, allowing you to focus on creating engaging and interactive experiences.
 
-## What you can build
+---
+
+## What You Can Build
 
 - **Voice Assistants**: [Natural, real-time conversations with AI](https://demo.dailybots.ai/)
 - **Interactive Agents**: Personal coaches and meeting assistants
@@ -12,208 +12,133 @@ Cat Terminal is an open source Python framework for building voice and multimoda
 - **Creative Tools**: [Story-telling experiences](https://storytelling-chatbot.fly.dev/) and social companions
 - **Business Solutions**: [Customer intake flows](https://www.youtube.com/watch?v=lDevgsp9vn0) and support bots
 
-## See it in action
+---
 
-<p float="left">
-    <a href="https://github.com/pipecat-ai/pipecat/tree/main/examples/simple-chatbot"><img src="https://raw.githubusercontent.com/pipecat-ai/pipecat/main/examples/simple-chatbot/image.png" width="280" /></a>&nbsp;
-    <a href="https://github.com/pipecat-ai/pipecat/tree/main/examples/storytelling-chatbot"><img src="https://raw.githubusercontent.com/pipecat-ai/pipecat/main/examples/storytelling-chatbot/image.png" width="280" /></a>
-    <br/>
-    <a href="https://github.com/pipecat-ai/pipecat/tree/main/examples/translation-chatbot"><img src="https://raw.githubusercontent.com/pipecat-ai/pipecat/main/examples/translation-chatbot/image.png" width="280" /></a>&nbsp;
-    <a href="https://github.com/pipecat-ai/pipecat/tree/main/examples/moondream-chatbot"><img src="https://raw.githubusercontent.com/pipecat-ai/pipecat/main/examples/moondream-chatbot/image.png" width="280" /></a>
-</p>
+## Key Features
 
-## Key features
+- **Voice-First Design**: Built-in speech recognition, text-to-speech (TTS), and conversation handling
+- **Flexible Integration**: Works seamlessly with popular AI services like OpenAI and ElevenLabs
+- **Pipeline Architecture**: Build complex applications using simple, reusable components
+- **Real-Time Processing**: Frame-based pipeline architecture for fluid and responsive interactions
+- **Production Ready**: Enterprise-grade WebRTC and WebSocket support
 
-- **Voice-first Design**: Built-in speech recognition, TTS, and conversation handling
-- **Flexible Integration**: Works with popular AI services (OpenAI, ElevenLabs, etc.)
-- **Pipeline Architecture**: Build complex apps from simple, reusable components
-- **Real-time Processing**: Frame-based pipeline architecture for fluid interactions
-- **Production Ready**: Enterprise-grade WebRTC and Websocket support
+---
 
-## Getting started
+## Getting Started
 
-You can get started with Cat Terminal running on your local machine, then move your agent processes to the cloud when you’re ready. You can also add a 📞 telephone number, 🖼️ image output, 📺 video input, use different LLMs, and more.
+You can start with **Terminal of Cats** on your local machine and then scale to cloud-based deployments when ready. Add features like a 📞 telephone number, 🗀 image output, or 📺 video input to create unique multimodal experiences.
+
+### Installation
 
 ```shell
-# Install the module
-pip install Cat-Terminal-ai
+# Install the core framework
+pip install Terminal-of-Cats
 
 # Set up your environment
 cp dot-env.template .env
 ```
 
-To keep things lightweight, only the core framework is included by default. If you need support for third-party AI services, you can add the necessary dependencies with:
+### Example Usage
 
-```shell
-pip install "Cat-Terminal-ai[option,...]"
-```
-
-## A simple voice agent running locally
-
-Here is a very basic Cat Terminal bot that greets a user when they join a real-time session. We'll use [Daily](https://daily.co) for real-time media transport, and [Cartesia](https://cartesia.ai/) for text-to-speech.
+Here is a basic example of how to use **Terminal of Cats**:
 
 ```python
-import asyncio
+from terminal_of_cats import Terminal
 
-from catterminal.frames.frames import EndFrame, TextFrame
-from catterminal.pipeline.pipeline import Pipeline
-from catterminal.pipeline.task import PipelineTask
-from catterminal.pipeline.runner import PipelineRunner
-from catterminal.services.cartesia import CartesiaTTSService
-from catterminal.transports.services.daily import DailyParams, DailyTransport
+# Initialize the terminal
+terminal = Terminal()
 
-async def main():
-  # Use Daily as a real-time media transport (WebRTC)
-  transport = DailyTransport(
-    room_url=...,
-    token="", # leave empty. Note: token is _not_ your api key
-    bot_name="Bot Name",
-    params=DailyParams(audio_out_enabled=True))
+# Add a speech recognition module
+terminal.add_speech_recognition()
 
-  # Use Cartesia for Text-to-Speech
-  tts = CartesiaTTSService(
-    api_key=...,
-    voice_id=...
-  )
+# Add a text-to-speech module
+terminal.add_text_to_speech()
 
-  # Simple pipeline that will process text to speech and output the result
-  pipeline = Pipeline([tts, transport.output()])
-
-  # Create Cat Terminal processor that can run one or more pipelines tasks
-  runner = PipelineRunner()
-
-  # Assign the task callable to run the pipeline
-  task = PipelineTask(pipeline)
-
-  # Register an event handler to play audio when a
-  # participant joins the transport WebRTC session
-  @transport.event_handler("on_first_participant_joined")
-  async def on_first_participant_joined(transport, participant):
-    participant_name = participant.get("info", {}).get("userName", "")
-    # Queue a TextFrame that will get spoken by the TTS service (Cartesia)
-    await task.queue_frame(TextFrame(f"Hello there, {participant_name}!"))
-
-  # Register an event handler to exit the application when the user leaves.
-  @transport.event_handler("on_participant_left")
-  async def on_participant_left(transport, participant, reason):
-    await task.queue_frame(EndFrame())
-
-  # Run the pipeline task
-  await runner.run(task)
-
-if __name__ == "__main__":
-  asyncio.run(main())
+# Run the terminal
+terminal.run()
 ```
 
-Run it with:
+---
 
-```shell
-python app.py
-```
+## Contributing
 
-Daily provides a prebuilt WebRTC user interface. While the app is running, you can visit at `https://<yourdomain>.daily.co/<room_url>` and listen to the bot say hello!
+We welcome contributions of all kinds! Your help is appreciated. Follow these steps to get involved:
 
-## WebRTC for production use
+1. **Fork this repository**: Start by forking the Terminal of Cats repository to your GitHub account.
+2. **Clone the repository**: Clone your forked repository to your local machine.
+   ```bash
+   git clone https://github.com/your-username/Terminal-of-Cats
+   ```
+3. **Create a branch**: For your contribution, create a new branch.
+   ```bash
+   git checkout -b your-branch
+   ```
+4. **Make your changes**: Edit or add files as needed.
+5. **Test your changes**: Ensure your changes are correct and follow the code style.
+6. **Commit your changes**: When satisfied with your changes, commit them with a meaningful message.
+   ```bash
+   git commit -m "Description of your changes"
+   ```
+7. **Push your changes**: Push your branch to your forked repository.
+   ```bash
+   git push origin your-branch
+   ```
+8. **Submit a Pull Request (PR)**: Open a PR from your forked repository to the main branch of this repository.
+   > Important: Clearly describe the changes you made!
 
-WebSockets are fine for server-to-server communication or for initial development. But for production use, you’ll need client-server audio to use a protocol designed for real-time media transport. (For an explanation of the difference between WebSockets and WebRTC, see [this post.](https://www.daily.co/blog/how-to-talk-to-an-llm-with-your-voice/#webrtc))
+Our maintainers will review your PR, and once everything is good, your contributions will be merged!
 
-One way to get up and running quickly with WebRTC is to sign up for a Daily developer account. Daily gives you SDKs and global infrastructure for audio (and video) routing. Every account gets 10,000 audio/video/transcription minutes free each month.
+---
 
-Sign up [here](https://dashboard.daily.co/u/signup) and [create a room](https://docs.daily.co/reference/rest-api/rooms) in the developer Dashboard.
+## Changelog
 
-## Hacking on the framework itself
+All notable changes to **Terminal of Cats** will be documented in this file.
 
-_Note that you may need to set up a virtual environment before following the instructions below. For instance, you might need to run the following from the root of the repo:_
+The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
+and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-```shell
-python3 -m venv venv
-source venv/bin/activate
-```
+## [Unreleased]
 
-From the root of this repo, run the following:
+### Added
+- New feature X
+- New feature Y
 
-```shell
-pip install -r dev-requirements.txt
-```
+### Changed
+- Improvements to feature Z
 
-This will install the necessary development dependencies. Also, make sure you install the git pre-commit hooks:
+### Fixed
+- Bug fix A
 
-```shell
-pre-commit install
-```
+### Performance
+- Optimizations to feature B
 
-The hooks will just save you time when you submit a PR by making sure your code follows the project rules.
+### Others
+- Documentation updates
 
-To use the package locally (e.g. to run sample files), run:
+## [0.0.53] - 2025-01-18
+- Details of changes
 
-```shell
-pip install --editable ".[option,...]"
-```
+## [0.0.52] - 2024-12-24
+- Details of changes
 
-The `--editable` option makes sure you don't have to run `pip install` again and you can just edit the project files locally.
+## [0.0.51] - 2024-12-16
+- Details of changes
 
-If you want to use this package from another directory, you can run:
+## [0.0.50] - 2024-12-11
+- Details of changes
 
-```shell
-pip install "path_to_this_repo[option,...]"
-```
+## [0.0.49] - 2024-11-17
+- Details of changes
 
-### Running tests
+## [0.0.48] - 2024-11-10 "Antonio Release"
+- Details of changes
 
-From the root directory, run:
+## [0.0.47] - 2024-10-22
+- Details of changes
 
-```shell
-pytest
-```
+## [0.0.46] - 2024-10-19
+- Details of changes
 
-## Setting up your editor
 
-This project uses strict [PEP 8](https://peps.python.org/pep-0008/) formatting via [Ruff](https://github.com/astral-sh/ruff).
 
-### Emacs
-
-You can use [use-package](https://github.com/jwiegley/use-package) to install [emacs-lazy-ruff](https://github.com/christophermadsen/emacs-lazy-ruff) package and configure `ruff` arguments:
-
-```elisp
-(use-package lazy-ruff
-  :ensure t
-  :hook ((python-mode . lazy-ruff-mode))
-  :config
-  (setq lazy-ruff-format-command "ruff format")
-  (setq lazy-ruff-check-command "ruff check --select I"))
-```
-
-`ruff` was installed in the `venv` environment described before, so you should be able to use [pyvenv-auto](https://github.com/ryotaro612/pyvenv-auto) to automatically load that environment inside Emacs.
-
-```elisp
-(use-package pyvenv-auto
-  :ensure t
-  :defer t
-  :hook ((python-mode . pyvenv-auto-run)))
-```
-
-### Visual Studio Code
-
-Install the
-[Ruff](https://marketplace.visualstudio.com/items?itemName=charliermarsh.ruff) extension. Then edit the user settings (_Ctrl-Shift-P_ `Open User Settings (JSON)`) and set it as the default Python formatter, and enable formatting on save:
-
-```json
-"[python]": {
-    "editor.defaultFormatter": "charliermarsh.ruff",
-    "editor.formatOnSave": true
-}
-```
-
-### PyCharm
-
-`ruff` was installed in the `venv` environment described before, now to enable autoformatting on save, go to `File` -> `Settings` -> `Tools` -> `File Watchers` and add a new watcher with the following settings:
-
-1. **Name**: `Ruff formatter`
-2. **File type**: `Python`
-3. **Working directory**: `$ContentRoot$`
-4. **Arguments**: `format $FilePath$`
-5. **Program**: `$PyInterpreterDirectory$/ruff`
-
-## Getting help
-
-➡️ [Reach us on X](https://x.com/Cat_Terminal_)
+[Follow us on X](https://x.com/Terminal_cats)

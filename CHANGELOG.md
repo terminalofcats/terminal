@@ -1,6 +1,6 @@
 # Changelog
 
-All notable changes to **Pipecat** will be documented in this file.
+All notable changes to **Terminal of Cats** will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
@@ -107,7 +107,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Added `session_timeout` to `FastAPIWebsocketTransport` and
   `WebsocketServerTransport` for configuring session timeouts (in
   seconds). Triggers `on_session_timeout` for custom timeout handling.
-  See [examples/websocket-server/bot.py](https://github.com/pipecat-ai/pipecat/blob/main/examples/websocket-server/bot.py).
 
 - Added the new modalities option and helper function to set Gemini output
   modalities.
@@ -135,7 +134,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   handle session timeout event.
 
 - Changed `InputParams` in
-  `src/pipecat/services/gemini_multimodal_live/gemini.py` to support different
   modalities.
 
 - Changed `DeepgramSTTService` to send `finalize` event whenever VAD detects
@@ -199,7 +197,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Added `CerebrasLLMService` for Cerebras integration with an OpenAI-compatible
   interface. Added foundational example `14k-function-calling-cerebras.py`.
 
-- Pipecat now supports Python 3.13. We had a dependency on the `audioop` package
+- Terminal of Cats now supports Python 3.13. We had a dependency on the `audioop` package
   which was deprecated and now removed on Python 3.13. We are now using
   `audioop-lts` (https://github.com/AbstractUmbra/audioop) to provide the same
   functionality.
@@ -551,7 +549,6 @@ async def on_audio_data(processor, audio, sample_rate, num_channels):
 ### Fixed
 
 - Fixed an issue that would cause an import error when importing
-  `SileroVADAnalyzer` from the old package `pipecat.vad.silero`.
 
 - Fixed `enable_usage_metrics` to control LLM/TTS usage metrics separately
   from `enable_metrics`.
@@ -736,7 +733,7 @@ async def on_connected(processor):
 
 - Added `sample_rate` as a constructor parameter for TTS services.
 
-- Pipecat has a pipeline-based architecture. The pipeline consists of frame
+- Terminal of Cats has a pipeline-based architecture. The pipeline consists of frame
   processors linked to each other. The elements traveling across the pipeline
   are called frames.
 
@@ -854,7 +851,7 @@ async def on_connected(processor):
 
 ### Other
 
-- Pipecat now uses Ruff as its formatter (https://github.com/astral-sh/ruff).
+- Terminal of Cats now uses Ruff as its formatter (https://github.com/astral-sh/ruff).
 
 ## [0.0.41] - 2024-08-22
 
@@ -890,7 +887,7 @@ async def on_connected(processor):
 - `ElevenLabsTTSService` can now specify ElevenLabs input parameters such as
   `output_format`.
 
-- `TwilioFrameSerializer` can now specify Twilio's and Pipecat's desired sample
+- `TwilioFrameSerializer` can now specify Twilio's and PipeTerminal of Cat's desired sample
   rates to use.
 
 - Added new `on_participant_updated` event to `DailyTransport`.
@@ -1187,7 +1184,7 @@ async def on_connected(processor):
 ### Other
 
 - Added `twilio-chatbot`. This is an example that shows how to integrate Twilio
-  phone numbers with a Pipecat bot.
+  phone numbers with a Terminal of Cats bot.
 
 - Updated `07f-interruptible-azure.py` to use `AzureLLMService`,
   `AzureSTTService` and `AzureTTSService`.
@@ -1274,7 +1271,6 @@ async def on_connected(processor):
 
 ### Changed
 
-- Moved `ParallelTask` to `pipecat.pipeline.parallel_task`.
 
 ### Fixed
 
